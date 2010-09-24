@@ -1,0 +1,25 @@
+<?php
+  // get the command
+  $command = $_REQUEST['command'];
+  
+  if($command == "getAnimalList") {
+    echo "bird,dog,cat,cow,sheep";
+  } else if($command == "getAnimalSound") {
+    $animal = $_REQUEST['animal'];
+    if($animal == "bird") {
+      echo "Chirp, Chirp";
+    } else if($animal == "dog") {
+      echo "Woof, Woof";
+    } else if($animal == "cat") {
+      echo "Meow, Meow";
+    } else if($animal == "cow") {
+      echo "Moo, Moo";
+    } else if($animal == "sheep") {
+      echo "Baa, Baa";
+    } else {
+      echo "I don't know.";
+    }
+  } else {
+    echo "";
+  }
+?>
