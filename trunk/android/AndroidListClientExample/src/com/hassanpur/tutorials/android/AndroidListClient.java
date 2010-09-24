@@ -1,3 +1,28 @@
+/**
+ * Copyright (c) 2010 Mujtaba Hassanpur.
+ * 
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following
+ * conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 package com.hassanpur.tutorials.android;
 
 import java.util.StringTokenizer;
@@ -13,6 +38,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
+/**
+ * Class: AndroidListClient - This is the main activity for this application.
+ * This example shows how we can implement a simple client/server model using
+ * an Android app as the client and a PHP script as the server. This example
+ * should be used in conjunction with the AndroidListServer example.
+ * 
+ * @author Mujtaba Hassanpur
+ */
 public class AndroidListClient extends ListActivity {
 
 	// Instance Variables
@@ -22,6 +55,8 @@ public class AndroidListClient extends ListActivity {
 	@SuppressWarnings("unchecked")
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		// we're going to need this later by the other threads
 		mainActivity = this;
 
 		// response is what we'll get from the server
@@ -31,6 +66,10 @@ public class AndroidListClient extends ListActivity {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list, initialList);
 		this.setListAdapter(adapter);
 
+		/*
+		 * Let's set up an item click listener to retrieve the animal sound and
+		 * display it to the user as a Toast.
+		 */
 		ListView lv = this.getListView();
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
