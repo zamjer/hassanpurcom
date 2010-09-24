@@ -59,7 +59,7 @@ public class AndroidListClient extends ListActivity {
 		// we're going to need this later by the other threads
 		mainActivity = this;
 
-		// response is what we'll get from the server
+		// let's initialize the list, the real data will be filled in later
 		String[] initialList = {""};
 
 		// now we'll supply the data structure needed by this ListActivity
@@ -75,13 +75,20 @@ public class AndroidListClient extends ListActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				// Spawn a GetAnimalSoundTask
+				/*
+				 * Spawn a GetAnimalSoundTask thread. This thread will get the
+				 * data from the server in the background, without blocking the
+				 * main UI thread.
+				 */
 				(new GetAnimalSoundTask()).execute((Object)((TextView)view).getText());
 			}
 
 		});
 
-		// Spawn a GetListTask
+		/*
+		 * Spawn a GetListTask thread. This thread will get the data from the
+		 * server in the background, so as not to block our main (UI) thread.
+		 */
 		(new GetListTask()).execute((Object)null);
 	}
 
