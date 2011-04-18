@@ -46,9 +46,6 @@ public class DownloaderThread extends Thread
 	// constants
 	private static final int DOWNLOAD_BUFFER_SIZE = 4096;
 	
-	// class variables
-	public static DownloaderThread instance = null;
-	
 	// instance variables
 	private AndroidFileDownloader parentActivity;
 	private String downloadUrl;
